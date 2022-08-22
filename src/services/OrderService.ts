@@ -2,12 +2,11 @@ import axios from 'axios';
 import { Order } from '../types/types';
 
 
-const ORDER_API_URL = 'http://tradeportfolio-tradeportfolio.openshift30.conygre.com';
+const ORDER_API_URL = 'http://tradeportfolio-tradeportfolio.openshift30.conygre.com/api/orders';
 class OrderService {
     
     getAllOrder() {
-        return axios.get(ORDER_API_URL, {
-            headers: {'Access-Control-Allow-Origin': '*'} });
+        return axios.get(ORDER_API_URL);
     }
 
     createOrder(order: Order) {
