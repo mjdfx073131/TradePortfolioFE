@@ -1,0 +1,78 @@
+.App {
+  text-align: center;
+}
+
+.topnav {
+  background-color: #5e35b1;
+  overflow: hidden;
+  position:relative;
+}
+
+.appName {
+  color: white;
+  font-size: 2.5em;
+  float: left;
+  margin-left: 20px;
+  padding: 10px 10px;
+}
+
+.tab {
+  color: white;
+  float: left;
+  margin-left: 20px;
+  text-align: center;
+  padding: 16.5px 20px;
+  font-size: 2em;
+}
+
+/* Style the links inside the navigation bar */
+.a {
+  text-decoration: 'none';
+  color: 'white';
+}
+
+.topnav a.active {
+  margin-left: 50px;
+  text-decoration: 'none';
+}
+
+.topnav a:hover {
+  background-color:#d1c4e9;
+  color: #5e35b1;
+  text-decoration: 'none';
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #d1c4e9;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,4 +1,4 @@
-# Citi-Budgeting-FE
+# TradePortfolioFE
 
 ## commands
 	`npm install`
