@@ -42,5 +42,5 @@ function DeleteoneOrder(): void {
   </div>
 
 
-  }
+}
 export default ProjectDeleteEntry;

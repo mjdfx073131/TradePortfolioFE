@@ -14,24 +14,25 @@ function App() {
       <BrowserRouter>
       <div className="topnav">
         <div className="appName">Trade Portfolio</div>
-        <Link to={'/add'} className="tab" style={{textDecoration: 'none'}}>
+          {/* <Link to={'/'} className="tab" style={{ textDecoration: 'none' }}></Link> */}
+        <Link to={'/add'} className="tabReact" style={{textDecoration: 'none'}}>
           <div className="ind">Add</div>
         </Link>
-        <Link to={'/get'} className="tab" style={{textDecoration: 'none'}}>
+        <Link to={'/get'} className="tabReact" style={{textDecoration: 'none'}}>
           <div className="ind">Get</div>
         </Link>
-        <Link to={'/scan'} className="tab" style={{textDecoration: 'none'}}>
+        <Link to={'/scan'} className="tabReact" style={{textDecoration: 'none'}}>
           <div className="ind">Scan</div>
         </Link>
-        <Link to={'/delete'} className="tab" style={{textDecoration: 'none'}}>
+        <Link to={'/delete'} className="tabReact" style={{textDecoration: 'none'}}>
           <div className="ind">Delete</div>
         </Link>
-        {/* <div className="tab">
-          <a style={{textDecoration: 'none', color: '#fff'}} target="_blank" href="http://budget-chatbox.s3-website-us-east-1.amazonaws.com">Chatbot</a>
-        </div> */}
       </div>
       <header className="App-header">
         <Switch>
+          {/* <Route exact path='/'>
+              <Advice></Advice>
+          </Route> */}
           <Route exact path='/get'>
             <ProjectGetEntry />
           </Route>
