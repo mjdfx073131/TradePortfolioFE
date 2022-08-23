@@ -20,8 +20,8 @@ const ProjectGetEntry: FunctionComponent<ProjectGetItem> = () => {
     }
 
 
-    return <div className="container" style={{marginLeft: "40px", marginRight: "40px", marginTop: "40px", marginBottom: "40px",  borderRadius: "5px", color: "#000"}}>
-      <h1 className="text-center" style={{color: "#000", marginBottom: "20px"}}>Find Order by ID</h1>
+    return <div>
+      <h1 className="text-center" style={{color: "#ffffff", marginBottom: "20px"}}>Find Order by ID</h1>
       <div>
           <input type="text"
                 value={order_id}
@@ -29,7 +29,7 @@ const ProjectGetEntry: FunctionComponent<ProjectGetItem> = () => {
               style={{marginRight: "20px",  borderRadius: "5px"}}
           />
           <button className="btn btn-primary" onClick={getOneProject} style={{backgroundColor: "#5e35b1"}}>
-              Get Project
+              Get Order
           </button>
       </div>
       <br></br>
