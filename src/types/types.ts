@@ -6,3 +6,10 @@ export interface Order {
     unitPrice: number;
     status_code: number;
 }
+
+export const STATUS_CODE = {
+    0: "pending",
+    1: "processing",
+    2: "success",
+    3: "failed"
+}
