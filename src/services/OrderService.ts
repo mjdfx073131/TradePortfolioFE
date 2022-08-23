@@ -3,6 +3,7 @@ import { Order } from '../types/types';
 
 
 const ORDER_API_URL = 'http://tradeportfolio-tradeportfolio.openshift30.conygre.com/api/orders';
+// const ORDER_API_URL = 'http://localhost:8080/api/orders';
 class OrderService {
     
     getAllOrder() {

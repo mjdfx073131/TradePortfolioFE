@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent, useState, useEffect } from 'react';
 import './App.css';
 import {Route, Switch, BrowserRouter, Link} from 'react-router-dom';
 import ProjectDelete from './components/ProjectDelete';
@@ -6,7 +6,21 @@ import ProjectList from './components/ProjectList';
 import ProjectScan from './components/ProjectScan';
 import ProjectAdd from './components/ProjectAdd';
 import Advice from './components/Advice';
+import { Order } from './types/types';
+import OrderService from './services/OrderService';
 function App() {
+  const emptyProjectsList: Order[] = [];
+  const [allProjects, setAllProjects] = useState(emptyProjectsList);
+  function getAllProjects(): void {
+    OrderService.getAllOrder().then((response: any) => {
+      setAllProjects(response.data);
+      console.log(response.data);
+    });
+  }
+  useEffect(() => {
+    getAllProjects();
+  }, []);
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -30,18 +44,18 @@ function App() {
               <Advice></Advice>
           </Route>
           <Route exact path = "/add">
-            <ProjectAdd />
+              <ProjectAdd getAllProjects={getAllProjects} />
             <br/>
-            <ProjectList/>
+              <ProjectList allProjects={allProjects}/>
           </Route>
           <Route exact path = "/filter">
             <ProjectScan />
             <br/>
           </Route>
           <Route exact path = '/delete'>
-            <ProjectDelete/>
+              <ProjectDelete getAllProjects={getAllProjects} />
             <br/>
-            <ProjectList/>
+              <ProjectList allProjects={allProjects} />
           </Route>
         </Switch>
       </header>

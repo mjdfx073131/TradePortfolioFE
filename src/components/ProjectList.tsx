@@ -1,29 +1,13 @@
-import React, { FunctionComponent, useEffect, useState } from "react";
-import OrderService from "../services/OrderService";
+import React, { FunctionComponent} from "react";
 import {Order} from "../types/types";
 import { STATUS_CODE } from "../types/types";
 export interface ProjectListProps {
-
+    allProjects: Order[],
 }
 
-const ProjectList: FunctionComponent<ProjectListProps> = () => {
+const ProjectList: FunctionComponent<ProjectListProps> = (props) => {
 
-    const emptyProjectsList: Order[] = [];
-    const [allProjects, setAllProjects] = useState(emptyProjectsList);
-
-    function getAllProjects(): void {
-        OrderService.getAllOrder().then((response: any) => {
-            setAllProjects(response.data);
-            console.log(response.data);
-        });
-    }
     
-
-    useEffect(() => {
-        getAllProjects();
-    }, []);
-
-    // setInterval(getAllProjects, 10000);
 
     return <div className="container" style={{marginLeft: "40px", marginRight: "40px",  borderRadius: "5px"}} >
         <h1 className="text-center" style={{color: '#ffffff'}}>History of Orders</h1>
@@ -41,7 +25,7 @@ const ProjectList: FunctionComponent<ProjectListProps> = () => {
             </thead>
             <tbody>
                 {
-                    allProjects.map(
+                    props.allProjects.map(
                         oneProject => 
                             <tr key={oneProject.orderId}>
                                 <td>{oneProject.orderId}</td>
