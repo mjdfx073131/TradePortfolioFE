@@ -10,7 +10,7 @@ const ProjectAdd: FunctionComponent<AddProjectProps> = () => {
     const [orderId, setOrderId] = useState<number>(0);
     const [sin, setSin] = useState<string>("");
     const [ticker, setTicker] = useState<string>("");
-    const [shares, setShares] = useState<number>(0);
+    const [shares, setShares] = useState<number>(1);
     const [unitPrice, setUnitPrice] = useState<number>(0);
     const [status_code, setStatusCode] = useState<number>(0);
 
@@ -29,7 +29,7 @@ const ProjectAdd: FunctionComponent<AddProjectProps> = () => {
             setOrderId(0);
             setSin("");
             setTicker("");
-            setShares(0);
+            setShares(1);
             setUnitPrice(0);
             setStatusCode(0);
         });
@@ -42,7 +42,7 @@ const ProjectAdd: FunctionComponent<AddProjectProps> = () => {
             return
         }
 
-        axios.get("http://localhost:8080/stock/" + ticker)
+        axios.get("http://tradeportfolio-tradeportfolio.openshift30.conygre.com/stock/" + ticker)
         .then((response) => {
             if (response.status === 200) {
                 setUnitPrice(response.data)
