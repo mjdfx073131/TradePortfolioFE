@@ -5,7 +5,7 @@ import ProjectGetEntry from './components/ProjectGetEntry';
 // import ProjectUpdateEntry from './components/ProjectUpdateEntry';
 import ProjectDelete from './components/ProjectDelete';
 import ProjectList from './components/ProjectList';
-// import ProjectScan from './components/ProjectScan';
+import ProjectScan from './components/ProjectScan';
 import ProjectAdd from './components/ProjectAdd';
 
 function App() {
@@ -21,8 +21,8 @@ function App() {
         <Link to={'/get'} className="tabReact" style={{textDecoration: 'none'}}>
           <div className="ind">Get</div>
         </Link>
-        <Link to={'/scan'} className="tabReact" style={{textDecoration: 'none'}}>
-          <div className="ind">Scan</div>
+        <Link to={'/filter'} className="tabReact" style={{textDecoration: 'none'}}>
+          <div className="ind">Filter</div>
         </Link>
         <Link to={'/delete'} className="tabReact" style={{textDecoration: 'none'}}>
           <div className="ind">Delete</div>
@@ -40,6 +40,10 @@ function App() {
             <ProjectAdd />
             <br/>
             <ProjectList/>
+          </Route>
+          <Route exact path = "/filter">
+            <ProjectScan />
+            <br/>
           </Route>
           <Route exact path = '/delete'>
             <ProjectDelete/>

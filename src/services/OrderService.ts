@@ -25,9 +25,17 @@ class OrderService {
         return axios.delete(PROJECT_API_URL_GET);
     }
   
-    scanORDER(team_name: string, net_amount_remaining: string) {
-        const PROJECT_API_URL_SCAN = 'https://a6dxgre3d8.execute-api.us-east-1.amazonaws.com/prd/team/' + team_name + '/net_amount_remaining/' + net_amount_remaining;
-        return axios.get(PROJECT_API_URL_SCAN);
+    filterOrders(sin: string) {
+        // const PROJECT_API_URL_SCAN = 'https://a6dxgre3d8.execute-api.us-east-1.amazonaws.com/prd/team/' + team_name + '/net_amount_remaining/' + net_amount_remaining;
+        // if (orderId == null){
+        //     return axios.get(ORDER_API_URL);
+        // }
+        const ORDER_API_URL_FILTER = ORDER_API_URL + '/SIN?SIN=' + sin;
+        // const PROJECT_API_URL_ID = ORDER_API_URL + '/orderId?orderId=' + orderId; 
+        // return axios.get(PROJECT_API_URL_ID);
+        // console.log(axios.get(ORDER_API_URL));
+        return axios.get(ORDER_API_URL_FILTER);
+
     }
 }
 
