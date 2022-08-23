@@ -1,4 +1,5 @@
 body{
+    font-family: 'Aboreto', cursive;
     background-color: #1A365D;
 }
 #treeMap {
@@ -103,11 +104,14 @@ circle.selected {
     cursor: pointer;
 
 }
+
 #search_bar{
     position: absolute;
     display:inline-flex;
     right: 30px;
+    top: 30px;
 }
+
 input[type='text'] {
     background-color: lightgrey;
     padding: 10px;

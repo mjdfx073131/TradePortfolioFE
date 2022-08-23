@@ -34,7 +34,7 @@ class TreeMap {
             .append("text")
             .attr("x", 20)
             .attr("y", 403)
-            .style("font-size", 11)
+            .style("font-size", 9)
             .attr('fill', 'white')
             .text("Size of rectangle encodes the amount of market capitalization in the given sector, each color represents a sector");
 
@@ -116,7 +116,7 @@ class TreeMap {
             .text(function (d) {
                 return d.data.sector
             })
-            .attr("font-size", "12px")
+            .attr("font-size", "9px")
             .attr("fill", "white")
 
     }

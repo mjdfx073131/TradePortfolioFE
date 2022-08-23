@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useEffect, useState } from "react";
 import OrderService from "../services/OrderService";
 import {Order} from "../types/types";
-
+import { STATUS_CODE } from "../types/types";
 export interface ProjectListProps {
 
 }
@@ -14,15 +14,19 @@ const ProjectList: FunctionComponent<ProjectListProps> = () => {
     function getAllProjects(): void {
         OrderService.getAllOrder().then((response: any) => {
             setAllProjects(response.data);
+            console.log(response.data);
         });
     }
+    
 
     useEffect(() => {
         getAllProjects();
-    }, [allProjects]);
+    }, []);
+
+    // setInterval(getAllProjects, 10000);
 
     return <div className="container" style={{marginLeft: "40px", marginRight: "40px",  borderRadius: "5px"}} >
-        <h1 className="text-center" style={{color: '#000'}}>History of Orders</h1>
+        <h1 className="text-center" style={{color: '#ffffff'}}>History of Orders</h1>
         <table className="table table-striped table-light table-bordered table-hover">
 
             <thead>
@@ -45,7 +49,7 @@ const ProjectList: FunctionComponent<ProjectListProps> = () => {
                                 <td>{oneProject.ticker}</td>
                                 <td>{oneProject.shares}</td>
                                 <td>{oneProject.unitPrice}</td>
-                                <td>{oneProject.status_code}</td>
+                                <td>{STATUS_CODE[oneProject.status_code]}</td>
                             </tr>
                     )
                 }
