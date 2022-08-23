@@ -2,6 +2,8 @@ import React, { FunctionComponent, useState } from "react";
 import OrderService from "../services/OrderService";
 import './../App.css';
 import {Order} from "../types/types";
+import axios from "axios";
+
 export interface AddProjectProps {}
 
 const ProjectAdd: FunctionComponent<AddProjectProps> = () => {
@@ -33,6 +35,25 @@ const ProjectAdd: FunctionComponent<AddProjectProps> = () => {
         });
     }
 
+    function setRealTimePrice(ticker: string): void {
+
+        if (ticker.length === 0) {
+            setUnitPrice(0)
+            return
+        }
+
+        axios.get("http://localhost:8080/stock/" + ticker)
+        .then((response) => {
+            if (response.status === 200) {
+                setUnitPrice(response.data)
+            }
+        })
+        .catch(() => {
+            setUnitPrice(0)
+        })
+
+    }
+
     return (
         <div className="container" style={{marginLeft: "40px", marginRight: "40px", marginTop: "40px", marginBottom: "40px",  borderRadius: "5px", color: "#000"}} >
             <h1 className="text-center" style={{marginTop: "20px"}}>Place an Order</h1>
@@ -61,7 +82,10 @@ const ProjectAdd: FunctionComponent<AddProjectProps> = () => {
                             className="form-control"
                             id="ticker"
                             value={ticker}
-                            onChange={(e) => setTicker(e.target.value)}
+                            onChange={(e) => {
+                                setTicker(e.target.value)
+                                setRealTimePrice(e.target.value)
+                            }}
                         />
                     </div>
                 </div>
@@ -88,8 +112,7 @@ const ProjectAdd: FunctionComponent<AddProjectProps> = () => {
                             type="text"
                             className="form-control"
                             id="unitPrice"
-                            value={unitPrice}
-                            onChange={(e) => setUnitPrice(+e.target.value)}
+                            placeholder={unitPrice.toString()}
                         />
                     </div>
                 </div>
