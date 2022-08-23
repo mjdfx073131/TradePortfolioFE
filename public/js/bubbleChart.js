@@ -40,7 +40,7 @@ class BubbleChart {
         vis.svgG.append('text')
             .attr('id', 'bubblechart_title')
         vis.custom_container = vis.basesvg.append('g').attr('id', 'custom_container')
-            .style("font-size", "15px")
+            .style("font-size", "13px")
             .attr("font-weight", "700")
             .attr('fill', '#dddddd')
         vis.custom_container.append('text')
@@ -129,7 +129,7 @@ class BubbleChart {
         vis.chartArea.append('text')
             .attr('class', 'axis-name')
             .attr('y', vis.innerHeight)
-            .attr('x', vis.innerWidth - 80)
+            .attr('x', vis.innerWidth - 100)
             .attr("text-anchor", "middle")
             .text("Amount of Market Capitalization");
         vis.svgG.append('text')

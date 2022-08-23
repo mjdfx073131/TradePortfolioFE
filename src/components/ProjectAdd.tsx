@@ -56,10 +56,10 @@ const ProjectAdd: FunctionComponent<AddProjectProps> = () => {
 
     return (
         <div className="container" style={{marginLeft: "40px", marginRight: "40px", marginTop: "40px", marginBottom: "40px",  borderRadius: "5px", color: "#000"}} >
-            <h1 className="text-center" style={{marginTop: "20px"}}>Place an Order</h1>
+            <h1 className="text-center" style={{marginTop: "20px", color: '#fff'}}>Place an Order</h1>
             <form>
                 <div className="form-group row">
-                    <label htmlFor="sin" className="col-sm-2 col-form-label">
+                    <label htmlFor="sin" className="col-sm-2 col-form-label" style={{ color: '#ffffff' }}>
                         SIN:
                     </label>
                     <div className="col-sm-10">
@@ -67,13 +67,13 @@ const ProjectAdd: FunctionComponent<AddProjectProps> = () => {
                             type="text"
                             className="form-control"
                             id="sin"
-                            value={sin}
+                            placeholder="Enter a SIN"
                             onChange={(e) => setSin(e.target.value)}
                         />
                     </div>
                 </div>
                 <div className="form-group row">
-                    <label htmlFor="ticker" className="col-sm-2 col-form-label">
+                    <label htmlFor="ticker" className="col-sm-2 col-form-label" style={{ color: '#ffffff' }}>
                         Ticker:
                     </label>
                     <div className="col-sm-10">
@@ -81,7 +81,7 @@ const ProjectAdd: FunctionComponent<AddProjectProps> = () => {
                             type="text"
                             className="form-control"
                             id="ticker"
-                            value={ticker}
+                            placeholder="Enter a ticker"
                             onChange={(e) => {
                                 setTicker(e.target.value)
                                 setRealTimePrice(e.target.value)
@@ -90,7 +90,7 @@ const ProjectAdd: FunctionComponent<AddProjectProps> = () => {
                     </div>
                 </div>
                 <div className="form-group row">
-                    <label htmlFor="Shares" className="col-sm-2 col-form-label">
+                    <label htmlFor="Shares" className="col-sm-2 col-form-label" style={{ color: '#ffffff' }}>
                         Shares:
                     </label>
                     <div className="col-sm-10">
@@ -98,13 +98,13 @@ const ProjectAdd: FunctionComponent<AddProjectProps> = () => {
                             type="text"
                             className="form-control"
                             id="shares"
-                            value={shares}
+                            placeholder="Enter shares"
                             onChange={(e) => setShares(+e.target.value)}
                         />
                     </div>
                 </div>
                 <div className="form-group row">
-                    <label htmlFor="unitPrice" className="col-sm-2 col-form-label">
+                    <label htmlFor="unitPrice" className="col-sm-2 col-form-label" style={{ color: '#ffffff' }}>
                     Unit Price:
                     </label>
                     <div className="col-sm-10">
