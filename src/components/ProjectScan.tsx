@@ -14,8 +14,20 @@ const ProjectScan: FunctionComponent<ProjectUpdateItem> = () => {
 
     // return <></>;
     function filterOrdersOnClick(): void {
-        OrderService.filterOrders(sin).then((response: any) => {
-            filterOrders(response.data);
+        OrderService.getAllOrder().then((response: any) => {
+        let FILTER_ORDERS_ID = response.data;
+        if (orderID !== 0){
+            console.log("reach 20");
+           let FILTER_ORDERS_ID_ID = FILTER_ORDERS_ID.filter(order => order.orderId === orderID);
+        }
+        if (sin !== "") {
+            FILTER_ORDERS_ID.filter(order => order.sin === sin);
+        }
+        if (ticker !== ""){
+            FILTER_ORDERS_ID.filter(order => order.ticker === ticker);
+        }
+            // console.log(FILTER_ORDERS_ID);
+            filterOrders(FILTER_ORDERS_ID);
         });
     }
 

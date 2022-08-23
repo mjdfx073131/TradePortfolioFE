@@ -33,7 +33,7 @@ class OrderService {
         const ORDER_API_URL_FILTER = ORDER_API_URL + '/SIN?SIN=' + sin;
         // const PROJECT_API_URL_ID = ORDER_API_URL + '/orderId?orderId=' + orderId; 
         // return axios.get(PROJECT_API_URL_ID);
-        // console.log(axios.get(ORDER_API_URL));
+        console.log(axios.get(ORDER_API_URL));
         return axios.get(ORDER_API_URL_FILTER);
 
     }
