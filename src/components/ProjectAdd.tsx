@@ -92,105 +92,81 @@ const ProjectAdd: FunctionComponent<AddProjectProps> = (props) => {
             <h1 className="text-center" style={{ marginTop: "20px", color: '#fff' }}>Place an Order</h1>
             <div className="container">
                 <div className="row" style={{ height: "300px" }}>
-                    <div className="col-md-6" >
-                    <div style={{ display: "inline-block" }}><form>
-                    <div className="form-group row" >
-                        <label htmlFor="sin" className="col-sm-3 col-form-label" style={{ color: '#ffffff' }}>
-                            SIN:
-                        </label>
-                        <div className="col-sm-10">
-                            <input
-                                type="text"
-                                className="form-control"
-                                id="sin"
-                                value={sin}
-                                placeholder="Enter a SIN"
-                                onChange={(e) => setSin(e.target.value)}
-                            />
+                    <div className="col-sm-6" >
+                        <div style={{ display: "inline-block", marginLeft: "250px" }}><form>
+                            <div className="form-group row" >
+                                <label htmlFor="sin" className="col-sm-3 col-form-label" style={{ color: '#ffffff' }}>
+                                    SIN:
+                                </label>
+                                <div className="col-sm-10">
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        id="sin"
+                                        value={sin}
+                                        placeholder="Enter a SIN"
+                                        onChange={(e) => setSin(e.target.value)}
+                                    />
+                                </div>
+                            </div>
+                            <div className="form-group row">
+                                <label htmlFor="ticker" className="col-sm-3 col-form-label" style={{ color: '#ffffff' }}>
+                                    Ticker:
+                                </label>
+                                <div className="col-sm-10">
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        id="ticker"
+                                        placeholder="Enter a ticker"
+                                        value={ticker}
+                                        onChange={(e) => {
+                                            setTicker(e.target.value)
+                                            setRealTimePrice(e.target.value)
+                                            getAdvice(e.target.value)
+                                        }}
+                                    />
+                                </div>
+                            </div>
+                            <div className="form-group row">
+                                <label htmlFor="Shares" className="col-sm-3 col-form-label" style={{ color: '#ffffff' }}>
+                                    Shares:
+                                </label>
+                                <div className="col-sm-10">
+                                    <input
+                                        type="text"
+                                        className="form-control"
+                                        id="shares"
+                                        value={shares === 1 ? "Enter shares" : shares}
+                                        // placeholder=""
+                                        onChange={(e) => setShares(+e.target.value)}
+                                    />
+                                </div>
+                            </div>
+                            <div className="form-group">
+                            </div>
+                        </form>
                         </div>
                     </div>
-                    <div className="form-group row">
-                        <label htmlFor="ticker" className="col-sm-3 col-form-label" style={{ color: '#ffffff' }}>
-                            Ticker:
-                        </label>
-                        <div className="col-sm-10">
-                            <input
-                                type="text"
-                                className="form-control"
-                                id="ticker"
-                                placeholder="Enter a ticker"
-                                value={ticker}
-                                onChange={(e) => {
-                                    setTicker(e.target.value)
-                                    setRealTimePrice(e.target.value)
-                                    getAdvice(e.target.value)
-                                }}
-                            />
+                    <div className="col-sm-6" >
+                        <div className="inline" style={{ display: "inline-block", marginRight: "250px"}}>
+                            <p style={{ marginTop: "35px" }}>
+                                Market Price: {unitPrice}
+                                <br />
+                                Advice: {advice["advice"]}
+                                <br />
+                                Last Close Price: {advice["lastClose"]}
+                                <br />
+                                Uppder Band: {advice["upperBand"]}
+                                <br />
+                                Lower Band: {advice["lowerBand"]}
+                            </p>
+                            <button className="btn btn-primary" onClick={placeOrder} style={{ backgroundColor: "#5e35b1" }}>
+                                Place an Order
+                            </button>
                         </div>
                     </div>
-                    <div className="form-group row">
-                        <label htmlFor="Shares" className="col-sm-3 col-form-label" style={{ color: '#ffffff' }}>
-                            Shares:
-                        </label>
-                        <div className="col-sm-10">
-                            <input
-                                type="text"
-                                className="form-control"
-                                id="shares"
-                                value={shares === 1 ? "Enter shares" : shares}
-                                // placeholder=""
-                                onChange={(e) => setShares(+e.target.value)}
-                            />
-                        </div>
-                    </div>
-                    {/* <div className="form-group row">
-                    <label htmlFor="unitPrice" className="col-sm-2 col-form-label" style={{ color: '#ffffff' }}>
-                    Market Price:
-                    </label>
-                    <div className="col-sm-10">
-                        <input
-                            type="text"
-                            className="form-control"
-                            id="unitPrice"
-                            // value={unitPrice}
-                            placeholder={unitPrice.toString()}
-                        />
-                    </div>
-                </div> */}
-
-                    <div className="form-group">
-                    </div>
-                </form>
                 </div>
-                    </div>
-                    <div className="col-md-6" >
-                    <div className="inline" style={{ display: "inline-block",textAlign:"center"}}>
-                    <p>
-                        Market Price: {unitPrice}
-                        <br />
-                        Advice: {advice["advice"]}
-                        <br />
-                        Last Close Price: {advice["lastClose"]}
-                        <br />
-                        Uppder Band: {advice["upperBand"]}
-                        <br />
-                        Lower Band: {advice["lowerBand"]}
-                    </p>
-                    <button className="btn btn-primary" onClick={placeOrder} style={{ backgroundColor: "#5e35b1" }}>
-                        Place an Order
-                    </button>
-                </div>
-                    </div>
-                </div>
-            </div>
-
-
-
-
-
-            <div className="row">
-
-
             </div>
         </div>
     );
