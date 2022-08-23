@@ -2,13 +2,15 @@ import React, { FunctionComponent, useState } from "react";
 import OrderService from "../services/OrderService";
 import './../App.css';
 import {Order} from "../types/types";
+import axios from "axios";
+
 export interface AddProjectProps {}
 
 const ProjectAdd: FunctionComponent<AddProjectProps> = () => {
     const [orderId, setOrderId] = useState<number>(0);
     const [sin, setSin] = useState<string>("");
     const [ticker, setTicker] = useState<string>("");
-    const [shares, setShares] = useState<number>(0);
+    const [shares, setShares] = useState<number>(1);
     const [unitPrice, setUnitPrice] = useState<number>(0);
     const [status_code, setStatusCode] = useState<number>(0);
 
@@ -27,10 +29,29 @@ const ProjectAdd: FunctionComponent<AddProjectProps> = () => {
             setOrderId(0);
             setSin("");
             setTicker("");
-            setShares(0);
+            setShares(1);
             setUnitPrice(0);
             setStatusCode(0);
         });
+    }
+
+    function setRealTimePrice(ticker: string): void {
+
+        if (ticker.length === 0) {
+            setUnitPrice(0)
+            return
+        }
+
+        axios.get("http://tradeportfolio-tradeportfolio.openshift30.conygre.com/stock/" + ticker)
+        .then((response) => {
+            if (response.status === 200) {
+                setUnitPrice(response.data)
+            }
+        })
+        .catch(() => {
+            setUnitPrice(0)
+        })
+
     }
 
     return (
@@ -61,7 +82,10 @@ const ProjectAdd: FunctionComponent<AddProjectProps> = () => {
                             className="form-control"
                             id="ticker"
                             placeholder="Enter a ticker"
-                            onChange={(e) => setTicker(e.target.value)}
+                            onChange={(e) => {
+                                setTicker(e.target.value)
+                                setRealTimePrice(e.target.value)
+                            }}
                         />
                     </div>
                 </div>
@@ -88,8 +112,7 @@ const ProjectAdd: FunctionComponent<AddProjectProps> = () => {
                             type="text"
                             className="form-control"
                             id="unitPrice"
-                            placeholder="Enter unit price"
-                            onChange={(e) => setUnitPrice(+e.target.value)}
+                            placeholder={unitPrice.toString()}
                         />
                     </div>
                 </div>
