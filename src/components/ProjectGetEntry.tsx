@@ -24,7 +24,7 @@ const ProjectGetEntry: FunctionComponent<ProjectGetItem> = () => {
       <h1 className="text-center" style={{color: "#ffffff", marginBottom: "20px"}}>Find Order by ID</h1>
       <div>
           <input type="text"
-                value={order_id}
+                placeholder="Enter an order Id"
                 onChange={e => setOrderId(+e.target.value)}
               style={{marginRight: "20px",  borderRadius: "5px"}}
           />

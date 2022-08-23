@@ -26,7 +26,7 @@ const ProjectList: FunctionComponent<ProjectListProps> = () => {
     // setInterval(getAllProjects, 10000);
 
     return <div className="container" style={{marginLeft: "40px", marginRight: "40px",  borderRadius: "5px"}} >
-        <h1 className="text-center" style={{color: '#000'}}>History of Orders</h1>
+        <h1 className="text-center" style={{color: '#ffffff'}}>History of Orders</h1>
         <table className="table table-striped table-light table-bordered table-hover">
 
             <thead>

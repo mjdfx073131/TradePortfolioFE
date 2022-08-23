@@ -16,16 +16,15 @@ function DeleteoneOrder(): void {
 }
 
   return <div className="container" style={{marginLeft: "40px", marginRight: "40px", marginTop: "40px", marginBottom: "40px",  borderRadius: "5px", color: "#000"}} >
-    <h1 className="text-center" style={{color: "#000", marginBottom: "20px"}}>Cancel an Order</h1>
+    <h1 className="text-center" style={{color: "#ffffff", marginBottom: "20px"}}>Cancel an Order</h1>
     <form>
       <div className="form-group row">
-        <label className="col-sm-2 col-form-label">
+        <label className="col-sm-2 col-form-label" style={{color: '#ffffff'}}>
           Order Id:
         </label>
         <div className="col-sm-10">
             <input 
                 type="text"
-                value={order_id}
                 className="form-control"
                 placeholder="Enter a Order Id"
                 onChange={e => setOrderId(+e.target.value)}

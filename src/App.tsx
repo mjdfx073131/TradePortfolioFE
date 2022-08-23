@@ -1,8 +1,6 @@
 import React from 'react';
 import './App.css';
 import {Route, Switch, BrowserRouter, Link} from 'react-router-dom';
-import ProjectGetEntry from './components/ProjectGetEntry';
-// import ProjectUpdateEntry from './components/ProjectUpdateEntry';
 import ProjectDelete from './components/ProjectDelete';
 import ProjectList from './components/ProjectList';
 import ProjectScan from './components/ProjectScan';

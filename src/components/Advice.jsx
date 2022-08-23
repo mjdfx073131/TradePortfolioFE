@@ -16,11 +16,6 @@ const Advice = () => {
                         <svg id="treeMap"></svg>
                     </div>
                     <div id="right">
-                        {/* <div class="tab">
-                            <button className="tablinks" id="SP500_tab" onClick="lineChart.update_tab('SP500',true)">S&P500 Index</button>
-                            <button className="tablinks" id="Sector_tab" onClick="lineChart.update_tab('Sector',true)">Selected Sector Total Stock Price</button>
-                            <button className="tablinks" id="Companies_tab" onClick="lineChart.update_tab('Companies',true)">Selected Companies Stock Price(s)</button>
-                        </div> */}
                         <svg id="lineChart"></svg>
                         <div id="lineChart_tooltip"></div>
 
