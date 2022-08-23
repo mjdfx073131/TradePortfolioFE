@@ -18,9 +18,6 @@ function App() {
         <Link to={'/add'} className="tabReact" style={{textDecoration: 'none'}}>
           <div className="ind">Add</div>
         </Link>
-        <Link to={'/get'} className="tabReact" style={{textDecoration: 'none'}}>
-          <div className="ind">Get</div>
-        </Link>
         <Link to={'/filter'} className="tabReact" style={{textDecoration: 'none'}}>
           <div className="ind">Filter</div>
         </Link>
@@ -33,9 +30,6 @@ function App() {
           {/* <Route exact path='/'>
               <Advice></Advice>
           </Route> */}
-          <Route exact path='/get'>
-            <ProjectGetEntry />
-          </Route>
           <Route exact path = "/add">
             <ProjectAdd />
             <br/>
