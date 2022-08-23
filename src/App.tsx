@@ -14,7 +14,7 @@ function App() {
   function getAllProjects(): void {
     OrderService.getAllOrder().then((response: any) => {
       setAllProjects(response.data);
-      console.log(response.data);
+      // console.log(response.data);
     });
   }
   useEffect(() => {

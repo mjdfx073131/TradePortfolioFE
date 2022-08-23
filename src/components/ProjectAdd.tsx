@@ -15,6 +15,7 @@ const ProjectAdd: FunctionComponent<AddProjectProps> = (props) => {
     const [shares, setShares] = useState<number>(1);
     const [unitPrice, setUnitPrice] = useState<number>(0);
     const [status_code, setStatusCode] = useState<number>(0);
+    const [advice, setAdvice] = useState<{}>("");
 
     function placeOrder(e: any): void {
         e.preventDefault();
@@ -61,6 +62,31 @@ const ProjectAdd: FunctionComponent<AddProjectProps> = (props) => {
 
     }
 
+    function getAdvice(ticker: string) : void {
+        console.log(ticker.length)
+        if (ticker.length === 0) {
+            setAdvice({})
+            return
+        }
+        axios
+            .get("https://qz4sxjl623.execute-api.us-east-1.amazonaws.com/default/tradeAdvisor?ticker=" + ticker)
+            .then((response) => {
+                let currAdvice = {
+                    "advice": response.data["advice"],
+                    "lastClose": response.data["lastClose"].toFixed(2),
+                    "lowerBand": response.data["lowerBand"].toFixed(2),
+                    "upperBand": response.data["upperBand"].toFixed(2)
+                }
+                setAdvice(
+                    currAdvice
+                )
+            })
+            .catch(() => {
+                setAdvice({})
+            })
+    }
+
+
     return (
         <div className="container" style={{marginLeft: "40px", marginRight: "40px", marginTop: "40px", marginBottom: "40px",  borderRadius: "5px", color: "#000"}} >
             <h1 className="text-center" style={{marginTop: "20px", color: '#fff'}}>Place an Order</h1>
@@ -94,6 +120,7 @@ const ProjectAdd: FunctionComponent<AddProjectProps> = (props) => {
                             onChange={(e) => {
                                 setTicker(e.target.value)
                                 setRealTimePrice(e.target.value)
+                                getAdvice(e.target.value)
                             }}
                         />
                     </div>
@@ -107,27 +134,41 @@ const ProjectAdd: FunctionComponent<AddProjectProps> = (props) => {
                             type="text"
                             className="form-control"
                             id="shares"
-                            value={shares === 1 ? "" : shares}
-                            placeholder="Enter shares"
+                            value={shares === 1 ? "Enter shares" : shares}
+                            // placeholder=""
                             onChange={(e) => setShares(+e.target.value)}
                         />
                     </div>
                 </div>
-                <div className="form-group row">
+                {/* <div className="form-group row">
                     <label htmlFor="unitPrice" className="col-sm-2 col-form-label" style={{ color: '#ffffff' }}>
-                    Unit Price:
+                    Market Price:
                     </label>
                     <div className="col-sm-10">
                         <input
                             type="text"
                             className="form-control"
                             id="unitPrice"
-                            value={unitPrice}
+                            // value={unitPrice}
                             placeholder={unitPrice.toString()}
                         />
                     </div>
-                </div>
+                </div> */}
                 
+                <div>
+                    <p>
+                        Market Price: {unitPrice}
+                        <br/>
+                        Advice: {advice["advice"]}
+                        <br/>
+                        Last Close Price: {advice["lastClose"]}
+                        <br/>
+                        Uppder Band: {advice["upperBand"]}
+                        <br/>
+                        Lower Band: {advice["lowerBand"]}
+                    </p>
+                
+                </div>               
                 <div className="form-group">
                     <button className="btn btn-primary" onClick={placeOrder} style={{backgroundColor: "#5e35b1"}}>
                         Place an Order
