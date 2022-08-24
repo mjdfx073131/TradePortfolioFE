@@ -27,7 +27,10 @@ const ProjectAdd: FunctionComponent<AddProjectProps> = (props) => {
             unitPrice: unitPrice,
             status_code: status_code,
         };
-
+        if (sin === "" || ticker === "" || shares === 1){
+            alert("Please enter all the information");
+            return
+        }
         OrderService.createOrder(order).then(() => {
             setOrderId(0);
             setSin("");
@@ -35,14 +38,11 @@ const ProjectAdd: FunctionComponent<AddProjectProps> = (props) => {
             setShares(1);
             setUnitPrice(0);
             setStatusCode(0);
+            setAdvice({})
             props.getAllProjects()
         });
     }
-    useEffect(() => {
-        const timer = setInterval(props.getAllProjects, 10000);
-        return () => clearInterval(timer);
-    }, [])
-
+    
     function setRealTimePrice(ticker: string): void {
 
         if (ticker.length === 0) {
@@ -63,7 +63,6 @@ const ProjectAdd: FunctionComponent<AddProjectProps> = (props) => {
     }
 
     function getAdvice(ticker: string): void {
-        console.log(ticker.length)
         if (ticker.length === 0) {
             setAdvice({})
             return
@@ -85,6 +84,10 @@ const ProjectAdd: FunctionComponent<AddProjectProps> = (props) => {
                 setAdvice({})
             })
     }
+    useEffect(() => {
+        const timer = setInterval(props.getAllProjects, 10000);
+        return () => clearInterval(timer);
+    }, [props.getAllProjects])
 
 
     return (
@@ -137,8 +140,8 @@ const ProjectAdd: FunctionComponent<AddProjectProps> = (props) => {
                                         type="text"
                                         className="form-control"
                                         id="shares"
-                                        value={shares === 1 ? "Enter shares" : shares}
-                                        // placeholder=""
+                                        value={shares === 1 ? "" : shares}
+                                        placeholder="Enter shares"
                                         onChange={(e) => setShares(+e.target.value)}
                                     />
                                 </div>
@@ -151,7 +154,7 @@ const ProjectAdd: FunctionComponent<AddProjectProps> = (props) => {
                     <div className="col-sm-6" >
                         <div className="inline" style={{ display: "inline-block", marginRight: "250px"}}>
                             <p style={{ marginTop: "35px" }}>
-                                Market Price: {unitPrice}
+                                Market Price: {unitPrice === 0? "" : unitPrice}
                                 <br />
                                 Advice: {advice["advice"]}
                                 <br />

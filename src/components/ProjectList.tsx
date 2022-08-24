@@ -7,7 +7,6 @@ export interface ProjectListProps {
 
 const ProjectList: FunctionComponent<ProjectListProps> = (props) => {
 
-    
 
     return <div className="container" style={{marginLeft: "40px", marginRight: "40px",  borderRadius: "5px"}} >
         <h1 className="text-center" style={{color: '#ffffff'}}>History of Orders</h1>
