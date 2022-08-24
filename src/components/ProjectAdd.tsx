@@ -50,7 +50,7 @@ const ProjectAdd: FunctionComponent<AddProjectProps> = (props) => {
             return
         }
 
-        axios.get("http://tradeportfolio-tradeportfolio.openshift30.conygre.com/stock/" + ticker)
+        OrderService.getMarketPriceByTicker(ticker)
             .then((response) => {
                 if (response.status === 200) {
                     setUnitPrice(response.data)
@@ -67,8 +67,7 @@ const ProjectAdd: FunctionComponent<AddProjectProps> = (props) => {
             setAdvice({})
             return
         }
-        axios
-            .get("https://qz4sxjl623.execute-api.us-east-1.amazonaws.com/default/tradeAdvisor?ticker=" + ticker)
+        OrderService.getAdviceByTicker(ticker)
             .then((response) => {
                 let currAdvice = {
                     "advice": response.data["advice"],
@@ -84,6 +83,7 @@ const ProjectAdd: FunctionComponent<AddProjectProps> = (props) => {
                 setAdvice({})
             })
     }
+    
     useEffect(() => {
         const timer = setInterval(props.getAllProjects, 10000);
         return () => clearInterval(timer);
@@ -124,9 +124,9 @@ const ProjectAdd: FunctionComponent<AddProjectProps> = (props) => {
                                         placeholder="Enter a ticker"
                                         value={ticker}
                                         onChange={(e) => {
-                                            setTicker(e.target.value)
-                                            setRealTimePrice(e.target.value)
-                                            getAdvice(e.target.value)
+                                            setTicker(e.target.value);
+                                            setRealTimePrice(e.target.value);
+                                            getAdvice(e.target.value);
                                         }}
                                     />
                                 </div>
