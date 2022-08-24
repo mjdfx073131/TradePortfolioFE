@@ -3,8 +3,6 @@ import React from "react";
 const Advice = () => {
     return (
         <div>
-            {/* <h9 id="title">S&P 500 Visualization</h9> */}
-
             <div id="search_bar">
                 <label htmlFor="search"></label>
                 <input id="search" type="text" name="searchActor" placeholder="Search Stocks"></input>

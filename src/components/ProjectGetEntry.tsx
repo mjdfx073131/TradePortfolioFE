@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useState } from "react";
 import ProjectService from "../services/OrderService";
 import {Order} from "../types/types";
-
+import ProjectList from "./ProjectList";
 export interface ProjectGetItem {
 
 }
@@ -33,30 +33,7 @@ const ProjectGetEntry: FunctionComponent<ProjectGetItem> = () => {
           </button>
       </div>
       <br></br>
-        <table style={{marginLeft: "40px", marginRight: "40px", marginTop: "40px", marginBottom: "40px", color: "#000"}} className="table table-striped table-light table-bordered table-hover">
-            <thead>
-                <tr>
-                    <td>Order Id</td>
-                    <td>SIN</td>
-                    <td>Ticker</td>
-                    <td>Shares</td>
-                    <td>Unit Price</td>
-                    <td>Status</td>
-                </tr>
-            </thead>
-            <tbody>
-
-                <tr key={oneProject.orderId}>
-                    <td>{oneProject.orderId}</td>
-                    <td>{oneProject.sin}</td>
-                    <td>{oneProject.ticker}</td>
-                    <td>{oneProject.shares}</td>
-                    <td>{oneProject.unitPrice}</td>
-                    <td>{oneProject.status_code}</td>
-                </tr>
-                    
-            </tbody>
-        </table>
+        <ProjectList allProjects={[oneProject]}></ProjectList>
   </div>
 };
 

@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import {Route, Switch, BrowserRouter, Link} from 'react-router-dom';
 import ProjectDelete from './components/ProjectDelete';
@@ -14,7 +14,7 @@ function App() {
   function getAllProjects(): void {
     OrderService.getAllOrder().then((response: any) => {
       setAllProjects(response.data);
-      console.log(response.data);
+      // console.log(response.data);
     });
   }
   useEffect(() => {
