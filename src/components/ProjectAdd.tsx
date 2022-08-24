@@ -153,7 +153,7 @@ const ProjectAdd: FunctionComponent<AddProjectProps> = (props) => {
                     </div>
                     <div className="col-sm-6" >
                         <div className="inline" style={{ display: "inline-block", marginRight: "250px"}}>
-                            <p style={{ marginTop: "35px" }}>
+                            <p style={{ marginTop: "31px" }}>
                                 Market Price: {unitPrice === 0? "" : unitPrice}
                                 <br />
                                 Advice: {advice["advice"]}
