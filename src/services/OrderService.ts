@@ -44,6 +44,10 @@ class OrderService {
         const ADVICE_URL = "https://qz4sxjl623.execute-api.us-east-1.amazonaws.com/default/tradeAdvisor?ticker=" + ticker;
         return axios.get(ADVICE_URL);
     }
+    getPortfolioBySin (sin: string) {
+        const PORTFOLIO_URL = ORDER_API_URL + '/Portfolio?SIN=' + sin;
+        return axios.get(PORTFOLIO_URL);
+    }
 }
 
 export default new OrderService();
