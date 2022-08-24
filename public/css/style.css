@@ -108,8 +108,7 @@ circle.selected {
 #search_bar{
     position: absolute;
     display:inline-flex;
-    right: 30px;
-    top: 30px;
+    left: 60px;
 }
 
 input[type='text'] {
