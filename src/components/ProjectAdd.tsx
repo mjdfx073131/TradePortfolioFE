@@ -91,7 +91,7 @@ const ProjectAdd: FunctionComponent<AddProjectProps> = (props) => {
 
 
     return (
-        <div className="container" style={{ marginLeft: "20px", marginRight: "20px", marginTop: "40px", marginBottom: "40px", borderRadius: "5px", color: "#000" }} >
+        <div className="container" style={{ marginLeft: "20px", marginRight: "20px", marginTop: "40px", marginBottom: "0px", borderRadius: "5px", color: "#000" }} >
             <h1 className="text-center" style={{ marginTop: "20px", color: '#fff' }}>Place an Order</h1>
             <div className="container">
                 <div className="row" style={{ height: "300px" }}>
@@ -170,7 +170,9 @@ const ProjectAdd: FunctionComponent<AddProjectProps> = (props) => {
                         </div>
                     </div>
                 </div>
+                
             </div>
+            <h1 className="text-center" style={{ color: '#ffffff', marginTop:"80px", marginBottom: "0px" }}>History of Orders</h1>
         </div>
     );
 };

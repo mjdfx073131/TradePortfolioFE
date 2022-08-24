@@ -18,6 +18,7 @@ const ProjectDeleteEntry: FunctionComponent<ProjectDeleteItem> = (props) => {
     const timer = setInterval(props.getAllProjects, 10000);
     return () => clearInterval(timer);
   }, [props.getAllProjects])
+
   return <div className="container" style={{ marginLeft: "40px", marginRight: "40px", marginTop: "40px", marginBottom: "40px", borderRadius: "5px", color: "#000" }} >
     <h1 className="text-center" style={{ color: "#ffffff", marginBottom: "20px" }}>Cancel an Order</h1>
     <form>
@@ -29,7 +30,7 @@ const ProjectDeleteEntry: FunctionComponent<ProjectDeleteItem> = (props) => {
           <input
             type="text"
             className="form-control"
-            placeholder="Enter a Order Id"
+            placeholder="Enter an Order Id"
             onChange={e => setOrderId(+e.target.value)}
             style={{ marginLeft: "20px", marginRight: "20px", borderRadius: "5px" }}
           />
