@@ -3,8 +3,8 @@ class TreeMap {
         this.config = {
             parentElement: _config.parentElement,
             containerWidth: 646,
-            containerHeight: 410,
-            margin: {top: 30, right: 10, bottom: 15, left: 15},
+            containerHeight: 700,
+            margin: {top: 80, right: 10, bottom: 200, left: 20},
         };
         this.data = _data
         this.initVis();
@@ -19,24 +19,14 @@ class TreeMap {
             .attr("width", vis.config.containerWidth)
             .attr("height", vis.config.containerHeight)
 
-        //append title
-        vis.svg.append('text')
-            .attr('id', '#bubbleChart_title')
-            .attr("x", 300)
-            .attr("y", 20)
-            .attr('fill', 'white')
-            .attr("text-anchor", "middle")
-            .attr('font-size', '18px')
-            .attr('font-weight', 'bold')
-            .text("Market Capitalization Distribution By Sectors")
         // append annotation
         vis.svg
             .append("text")
-            .attr("x", 20)
-            .attr("y", 403)
-            .style("font-size", 9)
+            .attr("x", 25)
+            .attr("y", 530)
+            .style("font-size", 18)
             .attr('fill', 'white')
-            .text("Size of rectangle encodes the amount of market capitalization in the given sector, each color represents a sector");
+            .text("Market Capitalization Distribution By Sectors");
 
 
         // Append group element that will contain our actual chart

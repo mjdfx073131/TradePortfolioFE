@@ -5,8 +5,8 @@ class LineChart {
         this.config = {
             parentElement: _config.parentElement,
             containerWidth: 690,
-            containerHeight: 450,
-            margin: _config.margin || {top: 30, right: 50, bottom: 60, left: 35}
+            containerHeight: 530,
+            margin: _config.margin || {top: 0, right: 50, bottom: 60, left: 35}
         }
         this.data = _data;
         this.initVis();
@@ -19,11 +19,11 @@ class LineChart {
         vis.defaultDomain = selectedDomain;
 
         //Set the size of each component in the plot
-        vis.title_height = 30
+        vis.title_height = 20
         vis.chart_height = vis.config.containerHeight - vis.config.margin.bottom - vis.config.margin.top - vis.title_height
         vis.chart_width = vis.config.containerWidth - vis.config.margin.right - vis.config.margin.left
 
-        vis.margin_btw = 20
+        vis.margin_btw = 10
         vis.overview_chart_height = 50
         vis.overview_chart_width = vis.chart_width
         vis.detail_chart_height = vis.chart_height - vis.overview_chart_height
@@ -44,15 +44,6 @@ class LineChart {
         //Creat the title for the line chart
         vis.svg.append("text")
             .attr("id", 'linechart_title')
-
-        //Creat the label for the y-axis
-        vis.svg.append("text")
-            .attr("class", 'axis-name')
-            .attr("id", 'y-axis-name')
-            .attr("x", vis.config.margin.left + 50)
-            .attr("y", vis.config.margin.top + vis.title_height - 10)
-            .attr("text-anchor", "middle")
-            .text("Stock Price in USD($)");
 
         //Creat the label for the x-axis
         vis.svg.append("text")
@@ -414,10 +405,10 @@ class LineChart {
         }
 
         //Add text to the legend for the line chart
-        vis.legend.append('text').text('SP500').attr('transform', `translate(0,20)`).attr('font-size', 10)
-        vis.legend.append('text').text('Basket1').attr('transform', `translate(40,20)`).attr('font-size', 10)
-        vis.legend.append('text').text('Basket2').attr('transform', `translate(80,20)`).attr('font-size', 10)
-        vis.legend.append('text').text('Other types of the line shows the sector of the stock, color corresponding to the treemap').attr('transform', `translate(150,20)`).attr('font-size', 8)
+        // vis.legend.append('text').text('SP500').attr('transform', `translate(0,20)`).attr('font-size', 10)
+        // vis.legend.append('text').text('Basket1').attr('transform', `translate(40,20)`).attr('font-size', 10)
+        // vis.legend.append('text').text('Basket2').attr('transform', `translate(80,20)`).attr('font-size', 10)
+        // vis.legend.append('text').text('Other types of the line shows the sector of the stock, color corresponding to the treemap').attr('transform', `translate(150,20)`).attr('font-size', 8)
     }
 
     import_data() {
