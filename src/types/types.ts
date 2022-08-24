@@ -13,3 +13,9 @@ export const STATUS_CODE = {
     2: "success",
     3: "failed"
 }
+
+export interface Portfolio {
+    ticker: string;
+    shares: number;
+    avgPrice: number;
+}
