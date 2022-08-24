@@ -2,7 +2,6 @@ import React, { FunctionComponent, useEffect, useState } from "react";
 import OrderService from "../services/OrderService";
 import './../App.css';
 import { Order } from "../types/types";
-import axios from "axios";
 
 export interface AddProjectProps {
     getAllProjects: any
@@ -83,7 +82,7 @@ const ProjectAdd: FunctionComponent<AddProjectProps> = (props) => {
                 setAdvice({})
             })
     }
-    
+
     useEffect(() => {
         const timer = setInterval(props.getAllProjects, 10000);
         return () => clearInterval(timer);
@@ -160,7 +159,7 @@ const ProjectAdd: FunctionComponent<AddProjectProps> = (props) => {
                                 <br />
                                 Last Close Price: {advice["lastClose"]}
                                 <br />
-                                Uppder Band: {advice["upperBand"]}
+                                Upper Band: {advice["upperBand"]}
                                 <br />
                                 Lower Band: {advice["lowerBand"]}
                             </p>
