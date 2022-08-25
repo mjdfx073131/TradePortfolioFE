@@ -123,7 +123,6 @@ const ProjectPortfolio: FunctionComponent<PortfolioProps> = (props) => {
                                                     <td>Ticker</td>
                                                     <td>Shares</td>
                                                     <td>Market Price</td>
-                                                    <td>Status</td>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -136,7 +135,6 @@ const ProjectPortfolio: FunctionComponent<PortfolioProps> = (props) => {
                                                                 <td>{oneProject.ticker}</td>
                                                                 <td>{oneProject.shares}</td>
                                                                 <td>{oneProject.unitPrice}</td>
-                                                                <td>{STATUS_CODE[oneProject.status_code]}</td>
                                                             </tr>
                                                     )
                                                 }
