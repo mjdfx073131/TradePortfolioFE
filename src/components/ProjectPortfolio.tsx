@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useState } from "react";
 import { Chart } from "react-google-charts";
-import {Portfolio, STATUS_CODE } from "../types/types";
+import {Portfolio} from "../types/types";
 import OrderService from "../services/OrderService";
 
 export interface PortfolioProps {
