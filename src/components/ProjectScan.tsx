@@ -45,7 +45,7 @@ const ProjectScan: FunctionComponent<ProjectUpdateItem> = () => {
             <input type="text"
                 value={ticker}
                 placeholder="Enter a ticker"
-                onChange={e => setTicker(e.target.value)}
+                onChange={e => setTicker(e.target.value.toUpperCase())}
                 style={{ marginLeft: "20px", marginRight: "20px", borderRadius: "5px" }}
             />
             <button className="btn btn-primary" onClick={filterOrdersOnClick} style={{ backgroundColor: "#5e35b1" }}>
