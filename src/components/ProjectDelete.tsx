@@ -37,7 +37,7 @@ const ProjectDeleteEntry: FunctionComponent<ProjectDeleteItem> = (props) => {
         </div>
         <div className="col-sm-2" style={{marginTop: "5px"}}>
           <button className="btn btn-primary" onClick={DeleteoneOrder} style={{ backgroundColor: "#5e35b1" }}>
-            Cancel an Order
+            Submit
           </button>
         </div>
       </div>
