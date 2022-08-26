@@ -26,7 +26,7 @@ const ProjectAdd: FunctionComponent<AddProjectProps> = (props) => {
             unitPrice: unitPrice,
             status_code: status_code,
         };
-        if (sin === "" || ticker === "" || shares === 1){
+        if (sin === "" || ticker === "" || shares === 0){
             alert("Please enter all the information");
             return
         }
@@ -139,7 +139,7 @@ const ProjectAdd: FunctionComponent<AddProjectProps> = (props) => {
                                         type="text"
                                         className="form-control"
                                         id="shares"
-                                        value={shares === 1 ? "" : shares}
+                                        value={(shares === 1 || shares === 0) ? "" : shares}
                                         placeholder="Enter shares"
                                         onChange={(e) => setShares(+e.target.value)}
                                     />
