@@ -123,7 +123,7 @@ const ProjectAdd: FunctionComponent<AddProjectProps> = (props) => {
                                         placeholder="Enter a ticker"
                                         value={ticker}
                                         onChange={(e) => {
-                                            setTicker(e.target.value);
+                                            setTicker(e.target.value.toUpperCase());
                                             setRealTimePrice(e.target.value);
                                             getAdvice(e.target.value);
                                         }}

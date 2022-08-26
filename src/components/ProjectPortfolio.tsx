@@ -63,6 +63,7 @@ const ProjectPortfolio: FunctionComponent<PortfolioProps> = (props) => {
                     tmpObj[order.ticker].push(order)
                 }
             })
+            console.log(tmpObj);
             setT(tmpObj)
         })
 
