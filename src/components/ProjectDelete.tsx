@@ -26,7 +26,7 @@ const ProjectDeleteEntry: FunctionComponent<ProjectDeleteItem> = (props) => {
         <label className="col-sm-2 col-form-label" style={{ color: '#ffffff' }}>
           Order Id:
         </label>
-        <div className="col-sm-10">
+        <div className="col-sm-6">
           <input
             type="text"
             className="form-control"
@@ -35,11 +35,11 @@ const ProjectDeleteEntry: FunctionComponent<ProjectDeleteItem> = (props) => {
             style={{ marginLeft: "20px", marginRight: "20px", borderRadius: "5px" }}
           />
         </div>
-      </div>
-      <div className="form-group">
-        <button className="btn btn-primary" onClick={DeleteoneOrder} style={{ backgroundColor: "#5e35b1" }}>
-          Cancel an Order
-        </button>
+        <div className="col-sm-2" style={{marginTop: "5px"}}>
+          <button className="btn btn-primary" onClick={DeleteoneOrder} style={{ backgroundColor: "#5e35b1" }}>
+            Cancel an Order
+          </button>
+        </div>
       </div>
     </form>
   </div>
